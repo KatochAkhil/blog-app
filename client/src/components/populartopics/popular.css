@@ -1,0 +1,23 @@
+.slider_item img {
+  width: 70px;
+  border-radius: 100%;
+  height: 70px;
+  margin: 0 auto;
+}
+.mostpopular_topics {
+  padding: 55px 0;
+  background-color: #f2f5f8a6;
+}
+.mostpopular_topics h2 {
+  font-size: 30px;
+  line-height: 110px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+
+.main_content p {
+  margin-top: 25px;
+  color: #17161a;
+  font-size: 18px;
+  line-height: 32px;
+}

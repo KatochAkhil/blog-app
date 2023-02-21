@@ -1,0 +1,52 @@
+.banner_text h1 {
+  font-size: 80px;
+  line-height: 96px;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  color: #454548;
+}
+.banner_text p {
+  font-size: 80px;
+  line-height: 96px;
+  letter-spacing: -0.5px;
+  color: #454548;
+  line-height: 70px;
+}
+
+.banner {
+  background: #0ea9d454;
+}
+
+.inner_slider_item {
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.inner_slider_item img {
+  border-radius: 20px;
+}
+
+.banner_text {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.text_slider {
+  position: absolute;
+  bottom: 10px;
+  left: 29px;
+  display: none;
+  color: #fff;
+}
+
+.inner_slider_item:hover .text_slider {
+  display: block;
+}
+
+.banner {
+  background: #0ea9d454;
+  padding: 55px 0;
+}
+.slider_section .item {
+  border: 0;
+  padding: 0;
+}

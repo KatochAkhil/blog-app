@@ -1,0 +1,43 @@
+div#navbarSupportedContent {
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.myNavbar form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.myNavbar {
+  background: #0ea9d454;
+  padding: 20px;
+}
+
+.myNavbar form input {
+  border: 0;
+  border-bottom: 1px solid #000;
+  border-radius: 0px;
+  padding: 10px 10px 10px 0;
+  background-color: transparent;
+}
+.myNavbar form input:focus {
+  border: 0;
+  border-bottom: 1px solid #000;
+  border-radius: 0px;
+  padding: 10px 10px 10px 0;
+  background-color: transparent;
+  box-shadow: unset;
+}
+
+li.nav-item {
+  padding: 0 10px;
+}
+.myNavbar form svg {
+  margin-left: 20px;
+}
+ul li a.nav-link {
+  color: #000;
+  font-size: 16px;
+}
+/* #17161a */

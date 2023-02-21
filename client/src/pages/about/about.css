@@ -1,0 +1,54 @@
+.left_hand_text h1 {
+  font-size: 56px;
+  line-height: 70px;
+  letter-spacing: -0.5px;
+  font-weight: 700;
+}
+.right_hand_text {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.right_hand_text p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+}
+.left_hand_text {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image_down_banner img {
+  border-radius: 20px;
+}
+.image_down_banner {
+  padding: 55px 0;
+}
+.down_main_text h2 {
+  font-size: 88px;
+  line-height: 110px;
+  letter-spacing: -1.5px;
+  font-weight: 500;
+}
+.down_main_text h3 {
+  font-size: 36px;
+  line-height: 52px;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+}
+.down_main_text p {
+  width: 60%;
+  margin: 0 auto;
+}
+.down_main_text {
+  padding: 55px 0;
+}
+.down_main_text p {
+  font-size: 36px;
+  line-height: 52px;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}

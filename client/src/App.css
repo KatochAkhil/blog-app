@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Sora", sans-serif !important;
+}
+img.footer_logo {
+  width: 130px;
+}
+
+/* footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+} */
