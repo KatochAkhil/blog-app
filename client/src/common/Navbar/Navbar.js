@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import { Icon } from "@iconify/react";
 import { getuser } from "../../redux/action";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("user"));
-  const getUser = useSelector((state) => state.data);
+  const user = localStorage.getItem("userId");
 
   useEffect(() => {
     if (user) {
-      dispatch(getuser(user?.id));
+      dispatch(getuser(user));
     }
-  }, [user?.id]);
+  }, [user]);
 
   return (
     <div className="myNavbar">
@@ -48,29 +47,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="/blogs"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <Link className="nav-link " to="/blogs">
                   Blogs
                 </Link>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link className="dropdown-item" to="">
-                    Action
-                  </Link>
-                  <Link className="dropdown-item" to="">
-                    Another action
-                  </Link>
-                  <div className="dropdown-divider"></div>
-                  <Link className="dropdown-item" to="">
-                    Something else here
-                  </Link>
-                </div>
               </li>
               <li className="nav-item">
                 <Link className="nav-link " to="/contact">
@@ -122,6 +101,7 @@ const Navbar = () => {
                     to="/login"
                     onClick={() => {
                       localStorage.removeItem("user");
+                      localStorage.removeItem("userId");
                     }}
                   >
                     <Icon icon="basil:logout-solid" width="30" color="black" />

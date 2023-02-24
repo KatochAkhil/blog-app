@@ -19,6 +19,14 @@ function Upload({ setStep, setFile }) {
       <div className="upload_section">
         {image ? (
           <label className="label_upload">
+            <button
+              className="close"
+              onClick={() => {
+                setImage(null);
+              }}
+            >
+              <Icon icon="charm:circle-cross" width="40" />
+            </button>
             <img
               src={URL.createObjectURL(image)}
               alt="profileimage"
@@ -35,7 +43,10 @@ function Upload({ setStep, setFile }) {
               id="file"
               type="file"
               style={{ display: "none" }}
-              onChange={(e) => setImage(e.target.files[0])}
+              onChange={(e) => {
+                setError("");
+                setImage(e.target.files[0]);
+              }}
             />
           </label>
         )}

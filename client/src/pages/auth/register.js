@@ -5,10 +5,13 @@ import * as yup from "yup";
 import "./auth.css";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/action";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,7 +22,7 @@ const Register = () => {
   });
 
   const formSubmit = async (e) => {
-    dispatch(registerUser(e, setLoading));
+    dispatch(registerUser(e, setLoading, navigate));
   };
 
   return (

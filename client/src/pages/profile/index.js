@@ -5,14 +5,17 @@ import "./profile.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProfiledetails } from "../../redux/action";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [tab, settab] = useState(1);
   const [file, setFile] = useState();
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const getUser = useSelector((state) => state.data);
+  const userId = localStorage.getItem("userId");
+  const navigate = useNavigate();
 
   const {
     register,
@@ -26,14 +29,15 @@ function Profile() {
   const formSubmit = (e) => {
     const formData = new FormData();
     formData.append("image", file);
-    formData.append("userId", getUser?.user?.id);
+    formData.append("userId", userId);
     formData.append("number", e.number);
     formData.append("name", e.name);
     formData.append("profession", e.profession);
     formData.append("interest", e.interest);
     formData.append("bio", e.bio);
-    dispatch(addProfiledetails(formData));
+    dispatch(addProfiledetails(formData, setLoading, navigate));
   };
+
   return (
     <section className="profile">
       <div className="container">
@@ -121,7 +125,9 @@ function Profile() {
                   </div>
                   <div className="col-md-12">
                     <div className="input_fields button_input_fields">
-                      <button type="submit">Upload Details</button>
+                      <button type="submit">
+                        {loading ? "Loading..." : " Upload Details"}
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -8,6 +8,12 @@
 body {
   font-family: "Sora", sans-serif !important;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 img.footer_logo {
   width: 130px;
 }

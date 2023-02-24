@@ -3,6 +3,7 @@ const db = require("../db/config");
 const { Op, where } = require("sequelize");
 const User = require("../db/models/users");
 const bcrypt = require("bcrypt");
+const Profile = require("../db/models/profile");
 const router = express.Router();
 
 // sign up
@@ -72,18 +73,23 @@ router.get("/:id", async (req, res) => {
       id: id,
     },
   });
+  const getProfile = await Profile.findOne({
+    where: {
+      userId: id,
+    },
+  });
   if (!getUser) {
     res.status(404).json("user Not found");
   } else {
     res.status(200).json({
       id: getUser.id,
-      name: getUser.name,
-      email: getUser.email,
-      number: getUser.number,
-      image: getUser.image,
-      profession: getUser.profession,
-      bio: getUser.bio,
-      interest: getUser.interest,
+      email: getUser?.email,
+      name: getProfile?.name,
+      number: getProfile?.number,
+      image: getProfile?.image,
+      profession: getProfile?.profession,
+      bio: getProfile?.bio,
+      interest: getProfile?.interest,
     });
   }
 });

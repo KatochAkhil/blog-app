@@ -1,12 +1,19 @@
 import { createNotification } from "../common/createNotifactions";
 import axios from "../utlis/axios";
 import {
+  addBlogRoute,
   login,
   profilefields,
   register,
   userProfile,
 } from "../utlis/endpoints";
-import { LOGIN, REGISTER, SINGLE_USER, UPDATE_USER } from "./constant";
+import {
+  ADD_BLOG,
+  LOGIN,
+  REGISTER,
+  SINGLE_USER,
+  UPDATE_USER,
+} from "./constant";
 
 export const userlogin = (user, setLoading, navigate) => async (dispatch) => {
   setLoading && setLoading(true);
@@ -28,6 +35,7 @@ export const registerUser =
     setLoading && setLoading(true);
     try {
       const res = await axios.post(register, user);
+      localStorage.setItem("userId", res.data.data.id);
       dispatch({ type: REGISTER, payload: res.data });
       navigate && navigate("/profile");
       createNotification("success", "Success", "User Registered Successful");
@@ -54,7 +62,8 @@ export const addProfiledetails =
     try {
       const res = await axios.post(profilefields, data);
       dispatch({ type: UPDATE_USER, payload: res.data });
-      navigate && navigate("/profile");
+      console.log(navigate);
+      navigate && navigate("/author");
       createNotification("success", "Success", "Details Added Successfully");
     } catch (error) {
       console.log(error);
@@ -62,4 +71,13 @@ export const addProfiledetails =
     setLoading && setLoading(false);
   };
 
- // next step Get Single USer Profile
+export const addBlog = (data, setLoading) => async (dispatch) => {
+  setLoading && setLoading(true);
+  try {
+    const res = await axios.post(addBlogRoute, data);
+    dispatch({ type: ADD_BLOG, payload: res.data });
+  } catch (error) {
+    console.log(error);
+  }
+  setLoading && setLoading(false);
+};

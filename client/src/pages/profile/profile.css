@@ -112,3 +112,10 @@
   border-color: #17161a;
   line-height: 1.6;
 }
+button.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: 0;
+}
