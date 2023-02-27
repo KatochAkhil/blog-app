@@ -1,6 +1,8 @@
 import React from "react";
 import "./footer.css";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
+
 const Footer = () => {
   return (
     <footer className="text-center text-lg-start  text-muted">
@@ -10,22 +12,20 @@ const Footer = () => {
         </div>
         <div>
           <Link className="me-4 text-reset">
-            <i className="fab fa-facebook-f"></i>
+            <Icon icon="ic:baseline-facebook" width="30" />
           </Link>
           <Link className="me-4 text-reset">
-            <i className="fab fa-twitter"></i>
+            <Icon icon="mdi:instagram" width="30" />
+          </Link>
+          <Link
+            to="https://github.com/"
+            className="me-4 text-reset"
+            target="_blank"
+          >
+            <Icon icon="mdi:github" width="30" />
           </Link>
           <Link className="me-4 text-reset">
-            <i className="fab fa-google"></i>
-          </Link>
-          <Link className="me-4 text-reset">
-            <i className="fab fa-instagram"></i>
-          </Link>
-          <Link className="me-4 text-reset">
-            <i className="fab fa-linkedin"></i>
-          </Link>
-          <Link className="me-4 text-reset">
-            <i className="fab fa-github"></i>
+            <Icon icon="mdi:linkedin" width="30" />
           </Link>
         </div>
       </section>
@@ -118,13 +118,13 @@ const Footer = () => {
         style={{ backgroundColor: `rgba(0, 0, 0, 0.05)` }}
       >
         Made with ♥️ by{" "}
-        <a
+        <Link
+          to="https://portfolio-8llicblox-katochakhil.vercel.app/"
           className="text-reset fw-bold"
           target="_blank"
-          href="https://portfolio-8llicblox-katochakhil.vercel.app/"
         >
           <b>Katoch Akhil</b>.
-        </a>
+        </Link>
       </div>
     </footer>
   );

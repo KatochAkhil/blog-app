@@ -5,6 +5,7 @@ import "react-quill/dist/quill.snow.css";
 import "./newblog.css";
 import { useDispatch } from "react-redux";
 import { addBlog } from "../../redux/action";
+
 function NewBlog() {
   const dispatch = useDispatch();
   const [value, setValue] = useState();
@@ -22,7 +23,6 @@ function NewBlog() {
       final = false;
     }
     let isTrueSet = /^true$/i.test(final);
-
     e.preventDefault();
     let formData = new FormData();
     formData.append("image", file);
