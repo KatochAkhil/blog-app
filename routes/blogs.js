@@ -7,6 +7,7 @@ const router = express.Router();
 const multer = require("multer");
 const Profile = require("../db/models/profile");
 const BlogsModal = require("../db/models/blogs");
+
 // image storage
 
 const imgConfig = multer.diskStorage({
@@ -61,36 +62,30 @@ router.post("/add", upload.single("image"), async (req, res) => {
 //get SingleBlog
 
 router.post("/get", async (req, res) => {
-  const { id, userId } = req.body;
-  if (!userId) {
-    res.status(404).json("User id is undefined");
-  } else {
-    const getProfile = await Profile.findOne({
-      where: {
-        userId,
-      },
-    });
-    if (!getProfile) {
-      res.status(404).json("User id is undefined");
-    } else {
-      const getSingleBlog = await BlogsModal.findOne({
-        where: {
-          id,
-        },
-      });
+  const { id } = req.body;
 
-      res.status(200).json({
-        id: getSingleBlog.id,
-        name: getProfile.name,
-        profilePicture: getProfile.image,
-        title: getSingleBlog.title,
-        description: getSingleBlog.description,
-        isPublish: getSingleBlog.isPublish,
-        image: getSingleBlog.image,
-        category: getSingleBlog.category,
-      });
-    }
-  }
+  const getSingleBlog = await BlogsModal.findOne({
+    where: {
+      id,
+    },
+  });
+
+  const getCurrentUser = await Profile.findOne({
+    where: {
+      userId: getSingleBlog.userId,
+    },
+  });
+
+  res.status(200).json({
+    id: getSingleBlog.id,
+    name: getCurrentUser.name,
+    profilePicture: getCurrentUser.image,
+    title: getSingleBlog.title,
+    description: getSingleBlog.description,
+    isPublish: getSingleBlog.isPublish,
+    image: getSingleBlog.image,
+    category: getSingleBlog.category,
+  });
 });
 
 //get blogs based on userId

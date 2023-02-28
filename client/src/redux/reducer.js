@@ -1,8 +1,9 @@
-import { LOGIN, REGISTER, SINGLE_USER } from "./constant";
+import { GET_ALL_BLOGS, LOGIN, REGISTER, SINGLE_USER } from "./constant";
 
 const initState = {
   login: {},
   user: {},
+  blogs: [],
 };
 
 export const mainReducer = (state = initState, action) => {
@@ -21,6 +22,11 @@ export const mainReducer = (state = initState, action) => {
       return {
         ...state,
         user: { ...payload },
+      };
+    case GET_ALL_BLOGS:
+      return {
+        ...state,
+        blogs: { ...payload },
       };
     default:
       return state;

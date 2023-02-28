@@ -56,18 +56,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link " to="/special">
-                  Special
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link " to="/create">
                   New
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link " to="/authors">
-                  Authors
                 </Link>
               </li>
             </ul>

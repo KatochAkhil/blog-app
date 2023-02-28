@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BannerTwo from "../../common/Banner/BannerTwo";
 import LatestBlog from "../../components/LateshBlog";
 import PopularTopics from "../../components/populartopics";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getAllBlogs } from "../../redux/action";
 function Blogs() {
+
+
   return (
     <section className="blog_page">
       <div className="container">

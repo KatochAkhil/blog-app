@@ -15,12 +15,14 @@
   -webkit-box-shadow: none;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+
 .input_fields input:focus {
   border: 0;
   outline: 0;
   border: none;
   border-bottom: 2px solid #a2a2a3;
 }
+
 .input_fields textarea {
   display: block;
   width: 100%;
@@ -36,12 +38,14 @@
   background: 0 0;
   margin-top: 55px;
 }
+
 .input_fields textarea:focus {
   border: 0;
   outline: 0;
   border: none;
   border-bottom: 2px solid #a2a2a3;
 }
+
 .contact_section h2 {
   width: 50%;
   font-size: 36px;
@@ -67,6 +71,7 @@
   border-color: #17161a;
   line-height: 1.6;
 }
+
 .input_fields.button_input_fields {
   margin-top: 55px;
 }

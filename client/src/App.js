@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import Footer from "./common/Footer/Footer";
 import Navbar from "./common/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,6 +14,7 @@ import Profile from "./pages/profile";
 import MainProfile from "./pages/profile/MainProfile";
 import Write from "./pages/Write/Write";
 import { useLocation } from "react-router-dom";
+import ErrorPage from "./pages/404";
 
 function App() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
   return (
     <>
       <Navbar />
@@ -34,6 +36,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/author" element={<MainProfile />} />
         <Route path="/create" element={<Write />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </>

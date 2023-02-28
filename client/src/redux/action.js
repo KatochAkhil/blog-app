@@ -2,13 +2,20 @@ import { createNotification } from "../common/createNotifactions";
 import axios from "../utlis/axios";
 import {
   addBlogRoute,
+  getAllBlogsRoute,
+  getSingleBlogRoute,
   login,
+  postContactForm,
   profilefields,
   register,
   userProfile,
 } from "../utlis/endpoints";
+
 import {
   ADD_BLOG,
+  ADD_CONTACT,
+  GET_ALL_BLOGS,
+  GET_SINGLE_BLOG,
   LOGIN,
   REGISTER,
   SINGLE_USER,
@@ -76,6 +83,39 @@ export const addBlog = (data, setLoading) => async (dispatch) => {
   try {
     const res = await axios.post(addBlogRoute, data);
     dispatch({ type: ADD_BLOG, payload: res.data });
+  } catch (error) {
+    console.log(error);
+  }
+  setLoading && setLoading(false);
+};
+
+export const addContactForm = (data, setLoading) => async (dispatch) => {
+  setLoading && setLoading(true);
+  try {
+    const res = await axios.post(postContactForm, data);
+    dispatch({ type: ADD_CONTACT, payload: res.data });
+  } catch (error) {
+    console.log(error);
+  }
+  setLoading && setLoading(false);
+};
+
+export const getAllBlogs = (setLoading) => async (dispatch) => {
+  setLoading && setLoading(true);
+  try {
+    const res = await axios.get(getAllBlogsRoute);
+    dispatch({ type: GET_ALL_BLOGS, payload: res.data });
+  } catch (error) {
+    console.log(error);
+  }
+  setLoading && setLoading(false);
+};
+
+export const getSingleBlog = (data, setLoading) => async (dispatch) => {
+  setLoading && setLoading(true);
+  try {
+    const res = await axios.post(getSingleBlogRoute, data);
+    dispatch({ type: GET_SINGLE_BLOG, payload: res.data });
   } catch (error) {
     console.log(error);
   }

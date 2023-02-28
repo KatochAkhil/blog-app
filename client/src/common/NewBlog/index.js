@@ -44,6 +44,7 @@ function NewBlog() {
             title="Write your Blog"
             desc="Lorem ipsum dolor sit amet consectetur adipisicing elit, Lorem ipsum dolor sit amet"
           />
+
           <form onSubmit={formSubmit}>
             <div className="write_a_blog">
               <h2 className="text-center">Write a Blog</h2>
