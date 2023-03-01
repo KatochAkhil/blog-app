@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import {  Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./common/Footer/Footer";
 import Navbar from "./common/Navbar/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
 import Home from "./pages/Home/index";
@@ -15,6 +14,7 @@ import MainProfile from "./pages/profile/MainProfile";
 import Write from "./pages/Write/Write";
 import { useLocation } from "react-router-dom";
 import ErrorPage from "./pages/404";
+import "./App.css";
 
 function App() {
   const location = useLocation();
